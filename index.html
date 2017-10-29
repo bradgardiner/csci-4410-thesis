@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>ACE in Action</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css" media="screen">
+   #editor {
+       position: relative;
+       height: 1000px;
+
+   }
+</style>
+</head>
+<body>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h3 class="panel-title">
+               <nav class="navbar navbar-static-top">
+                 <div class="container-fullwidth">
+                   <div class="navbar-header">
+                     <a class="navbar-brand" href="#">WebSiteName</a>
+                   </div>
+                   <ul class="nav navbar-nav">
+                     <li class="active"><a href="#">Home</a></li>
+                     <li><a href="#">Page 1</a></li>
+                     <li><a href="#">Page 2</a></li>
+                     <li><a href="#">Page 3</a></li>
+                   </ul>
+                 </div>
+               </nav>
+             </h3>
+        </div>
+        <div class="panel-body">
+            <div id="editor">function foo(items) {
+                var x = "All this is syntax highlighted";
+                return x;
+            }</div>
+        </div>
+    </div>
+    <div class="text-center">---End of editor---</div>
+</div>
+
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
+</body>
+</html>
