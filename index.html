@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>ACE in Action</title>
+   <title>Thesis</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="styles/style.css" rel="stylesheet" type="text/css">
@@ -9,13 +9,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css" media="screen">
-   #editor {
-       position: relative;
-       height: 1000px;
 
-   }
-</style>
 </head>
 <body>
 
@@ -23,38 +17,51 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a href="#">Users</a>
+    <a href="#">Files</a>
+    <!--<a href="#">Contact</a>-->
   </div>
 
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <!--<div id="bottomMenu" class="bottomnav">
+    <a href="javascript:void(0)" class="dropbtn" onclick="dropBottom()">&times;</a>
+  -->
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-    </script>
+  <!--span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span-->
 
 
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
+
+
+<!--div class="container">
+    <div class="panel panel-default"-->
+        <div class="panel-heading" id="main">
              <h3 class="panel-title">
                <nav class="navbar navbar-static-top">
                  <div class="container-fullwidth">
                    <div class="navbar-header">
-                     <a class="navbar-brand" href="#">WebSiteName</a>
+                     <a class="navbar-brand" href="#" onclick="openNav()">Thesis</a>
+                     <script>
+                     /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+                    function openNav() {
+                      document.getElementById("mySidenav").style.width = "250px";
+                      document.getElementById("editor").style.marginLeft = "250px";
+                      document.getElementById("tabMenu").style.marginLeft = "250px";
+                      document.getElementById("main").style.marginLeft = "250px";
+                    }
+
+                    /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+                    function closeNav() {
+                      document.getElementById("mySidenav").style.width = "0";
+                      document.getElementById("editor").style.marginLeft = "0";
+                      document.getElementById("tabMenu").style.marginLeft = "0";
+                      document.getElementById("main").style.marginLeft = "0";
+                        }
+                       </script>
                    </div>
                    <ul class="nav navbar-nav">
                      <li class="active"><a href="#">Home</a></li>
-                     <li><a href="#">Page 1</a></li>
-                     <li><a href="#">Page 2</a></li>
-                     <li><a href="#">Page 3</a></li>
+                     <li><a href="#">Compile</a></li>
+                     <li><a href="#">Run</a></li>
+                     <li><a href="#">Something else hmmm</a></li>
                    </ul>
                  </div>
                </nav>
@@ -66,9 +73,34 @@
                 return x;
             }</div>
         </div>
-    </div>
+
+        <div class="container" id="tabMenu">
+            <h3>Tabs</h3>
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a data-toggle="tab" href="#consoleTab" aria-expanded="ture">Console</a>
+                </li>
+
+                <li class>
+                  <a data-toggle="tab" href="#outputTab" aria-expanded="false">Output</a>
+                </li>
+              </ul>
+
+            <div class="tab-content">
+              <div id="consoleTab" class="tab-pane fade">
+                <p>Future Console output</p>
+              </div>
+
+              <div id="oututTab" class="tab-pane fade">
+                <p>Future program output</p>
+              </div>
+
+            </div>
+
+        </div>
+    <!--/div>
     <div class="text-center">---End of editor---</div>
-</div>
+</div-->
 
 <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
