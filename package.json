@@ -1,0 +1,15 @@
+{
+  "name": "routes",
+  "version": "1.0.0",
+  "description": "A simple example testing out routes and middleware",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Randy J. Fortier",
+  "license": "0BSD",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  }
+}
