@@ -3,7 +3,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
-// var st = require('st');
+// app.use(express.static(__dirname + "/src"));
+// app.use(express.static(__dirname + "/style"));
 // var path = require('path');
 
 
@@ -13,6 +14,8 @@ app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
 
+app.use(express.static('public'))
+
 app.use(function(request, response, next) {
 	console.log('REQUEST: url = ' + request.url);
 	next();
@@ -21,14 +24,21 @@ app.use(function(request, response, next) {
 app.get('/', function(request, response) {
 	response.sendFile(__dirname + '/index.html');
 });
+//
+// app.post('/run', function(request, response){
+// 	console.log('POST STUFF', request.body.editor);
+// 	response.send("Ty");
+//
+// });
+//
+// app.get('/styles/style.css', function(request, response) {
+// 	response.sendFile(__dirname + '/styles/style.css');
+// });
+//
+// app.get('/src/ace.js', function(request, response) {
+// 	response.sendFile(__dirname + '/src/ace.js');
+// });
 
-app.get('/styles/style.css', function(request, response) {
-	response.sendFile(__dirname + '/styles/style.css');
-});
-
-app.get('/src/ace.js', function(request, response) {
-	response.sendFile(__dirname + '/src/ace.js');
-});
 
 
 
