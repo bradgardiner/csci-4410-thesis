@@ -25,11 +25,11 @@ app.get('/', function(request, response) {
 	response.sendFile(__dirname + '/index.html');
 });
 //
-// app.post('/run', function(request, response){
-// 	console.log('POST STUFF', request.body.editor);
-// 	response.send("Ty");
-//
-// });
+app.post('/run', function(request, response){
+	console.log('POST STUFF', request.body);
+	response.send("Ty");
+
+});
 //
 // app.get('/styles/style.css', function(request, response) {
 // 	response.sendFile(__dirname + '/styles/style.css');

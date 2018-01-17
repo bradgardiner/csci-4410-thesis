@@ -32,7 +32,7 @@
                      <a class="navbar-brand" href="#" onclick="openNav()">Thesis</a>
                    </div>
                    <ul class="nav navbar-nav">
-                     <li class="active"><a href="run" action= "/run">Home</a></li>
+                     <li class="active"><a href="#">Home</a></li>
                      <li><a href="#">Compile</a></li>
                      <li><a href="#" id="Run" onclick="sendText()">Run</a></li>
                      <li><a href="#">Something else hmmm</a></li>
@@ -42,14 +42,48 @@
              </h3>
         </div>
 
-          <div class="panel-body">
-              <div id="editor">function foo(items) {
+
+
+          <!-- <div class="panel-body">
+              <div id="editor" onchange="update()">function foo(items) {
                   var x = "All this is syntax highlighted";
                   return x;
               }</div>
-          </div>
+              <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+              <script>
+                  var editor = ace.edit("editor");
+                  editor.setTheme("ace/theme/monokai");
+                  editor.getSession().setMode("ace/mode/javascript");
+              </script>
+              <div id="output">output-div is here (click 'go' and write HTML and js in the editor) </div>
 
-          <button>run</button>
+          </div> -->
+
+        <div class="panel-body">
+            <a href="#" onclick="update()">go</a>
+            <div id="editor" onChange="update()">function foo(items) { var x = "All this is syntax highlighted"; return x; }
+            </div>
+            <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+            <script>
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/monokai");
+                editor.getSession().setMode("ace/mode/javascript");
+            </script>
+
+          </div>
+        </div>
+         <div class="text-center">---End of editor---</div>
+         <form action="/run" method="post">
+           <textarea id="output">output-div is here (click 'go' and write HTML and js in the editor) </textarea>
+           <button>run</button>
+         </form>
+
+
+
+
+
+
+
 
 
         <div class="container" id="tabMenu">
@@ -77,11 +111,6 @@
 
         </div>
 
-<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-</script>
+
 </body>
 </html>

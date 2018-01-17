@@ -34,11 +34,22 @@
     margin-left: 50px;
 }
 
-#editor {
+/* #editor {
         position: relative;
         height: 500px;
 
-      }
+      } */
+
+#editor {
+  /** Setting height is also important, otherwise editor wont showup**/
+  height: 300px;
+}
+
+#output {
+  background-color: #e6faff;
+  height: 100px;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
