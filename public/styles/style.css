@@ -1,4 +1,6 @@
-
+body{
+  height:100vh;
+}
 
 .sidenav {
     height: 100%;
@@ -19,7 +21,7 @@
     font-size: 25px;
     color: #818181;
     display: block;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .sidenav a:hover {
@@ -34,15 +36,38 @@
     margin-left: 50px;
 }
 
-/* #editor {
-        position: relative;
-        height: 500px;
+#main{
+  position: relative;
+  background-color: transparent;
+  background-image: url("Tatra_Mountains_banner.jpg");
+  background-position: bottom right;
+  background-size: 100%;
+}
+#main a{
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  background-color: #333;
+  border-radius: 25px;
+  border-left:5px solid;
+  border-color: #9bc2dd;
+  color: #9bc2dd;
+}
+#tabMenu{
+  background-color: #3D3D3B;
+  width: 100%;
+  padding: 20px;
+}
 
-      } */
+#tabMenu li{
+  background-color: #aaa;
+}
+
+#tabMenu a{
+  background-color: #aaa;
+}
 
 #editor {
-  /** Setting height is also important, otherwise editor wont showup**/
-  height: 300px;
+  height: 100%;
 }
 
 #output {
