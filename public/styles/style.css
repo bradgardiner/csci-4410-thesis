@@ -37,6 +37,7 @@ body{
 }
 
 #main{
+  border-color: black;
   position: relative;
   background-color: transparent;
   background-image: url("Tatra_Mountains_banner.jpg");
@@ -45,12 +46,21 @@ body{
 }
 #main a{
   font-weight: bold;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 1px black;
   background-color: #333;
-  border-radius: 25px;
+  border-radius: 10px;
   border-left:5px solid;
   border-color: #9bc2dd;
   color: #9bc2dd;
+}
+
+#main a:hover{
+  text-shadow: 2px 2px white;
+  background-color: white;
+  border-radius: 10px;
+  border-left:5px solid;
+  border-color: #9bc2dd;
+
 }
 #tabMenu{
   background-color: #3D3D3B;
