@@ -6,22 +6,28 @@ var bodyParser = require("body-parser");
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 var fs = require('fs');
+var uuidv4 = require('uuid/v4');
 // app.use(express.static(__dirname + "/src"));
 // app.use(express.static(__dirname + "/style"));
 // var path = require('path');
 
 var port = 3000;
+var sessionid;
 
 io.on('connection', function(socket){
 	console.log('a user connected');
+	console.log(socket.socketid);
+
+
 	socket.on('disconnect', function(){
 		console.log('a user has disconnected');
 	});
 
 	socket.on('editorUpdate', function(data){
 		console.log(data);
+
 		var fileContent = data;
-		var path = "someURI.js";
+		var path = sessionid + ".js";
 		fs.writeFile(path, fileContent, (err) => {
     if (err) throw err;
 
@@ -54,6 +60,12 @@ app.use(function(request, response, next) {
 });
 
 app.get('/', function(request, response) {
+	sessionid = uuidv4();
+	response.redirect('/edit/'+sessionid);
+	//response.sendFile(__dirname + '/index.html');
+});
+
+app.get('/edit/:sessionid', function(request, response) {
 	response.sendFile(__dirname + '/index.html');
 });
 //
