@@ -14,24 +14,33 @@ var uuidv4 = require('uuid/v4');
 var port = 3000;
 var sessionid;
 
+
 io.on('connection', function(socket){
 	console.log('a user connected');
-	console.log(socket.socketid);
-
 
 	socket.on('disconnect', function(){
 		console.log('a user has disconnected');
 	});
 
-	socket.on('editorUpdate', function(data){
+	socket.on('setup', function(id, url){
+		// console.log("The ID is : " + id)
+		// console.log("The url is : " + url);
+		// console.log(url.split('/')[4]);
+		socket.join(url.split('/')[4]);
+		//console.log(io.sockets.adapter.rooms);
+	});
+
+	socket.on('editorUpdate', function(data, room){
 		console.log(data);
 
 		var fileContent = data;
-		var path = sessionid + ".js";
+		var path = room + ".js";
 		fs.writeFile(path, fileContent, (err) => {
     if (err) throw err;
 
     console.log("The file was succesfully saved!");
+		
+		socket.to(room).emit('editUpdate', data);
 		});
 	})
 });
@@ -66,6 +75,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/edit/:sessionid', function(request, response) {
+
 	response.sendFile(__dirname + '/index.html');
 });
 //
