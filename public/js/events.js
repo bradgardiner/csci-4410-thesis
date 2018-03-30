@@ -29,7 +29,7 @@ window.onload = function(){
 
 
     editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
+    editor.setTheme("ace/theme/pastel_on_dark");
     editor.getSession().setMode("ace/mode/javascript");
     // editor.getSession().on('change', function() {
     // update(editor)
