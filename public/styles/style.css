@@ -1,5 +1,6 @@
 body{
   height:100vh;
+
 }
 
 .sidenav {
@@ -39,8 +40,11 @@ body{
 #main{
   border-color: black;
   position: relative;
-  background-color: transparent;
-  background-image: url("Tatra_Mountains_banner.jpg");
+  background-color: #30353e;
+  padding: 10px;
+  /* height:  60px; */
+  transition: 0.5s;
+  /* background-image: url("Tatra_Mountains_banner.jpg"); */
   background-position: bottom right;
   background-size: 100%;
 }
@@ -49,16 +53,20 @@ body{
   text-shadow: 1px 1px black;
   background-color: #333;
   border-radius: 10px;
-  border-left:5px solid;
-  border-color: #9bc2dd;
+  margin-right: 2px;
+  margin-left: 5px;
+  border:2px solid;
+  border-color: white;
+  padding: 10px;
   color: #9bc2dd;
+  height: 40px;
 }
 
 #main a:hover{
   text-shadow: 2px 2px white;
   background-color: white;
   border-radius: 10px;
-  border-left:5px solid;
+  border:2px solid;
   border-color: #9bc2dd;
 
 }
@@ -66,6 +74,7 @@ body{
   background-color: #3D3D3B;
   width: 100%;
   padding: 20px;
+  transition: 0.5s;
 }
 
 #tabMenu li{
@@ -78,6 +87,7 @@ body{
 
 #editor {
   height: 100%;
+  transition: 0.5s;
 }
 
 #output {

@@ -18,7 +18,9 @@ window.onload = function(){
     socket.on('editUpdate', function(data){
       console.log("WE MADE IT");
       //document.getElementById("editor"). = data;
+      var cursor = editor.selection.getCursor()
       editor.setValue(data, -1);
+      editor.selection.moveCursorToPosition(cursor);
     });
 
 
