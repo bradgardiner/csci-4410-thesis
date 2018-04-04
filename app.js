@@ -7,6 +7,10 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 var fs = require('fs');
 var uuidv4 = require('uuid/v4');
+var Docker = require('dockerode');
+var docker = new Docker({
+  socketPath: '/var/run/docker.sock'
+});
 // app.use(express.static(__dirname + "/src"));
 // app.use(express.static(__dirname + "/style"));
 // var path = require('path');
@@ -34,16 +38,60 @@ io.on('connection', function(socket){
 		console.log(data);
 
 		var fileContent = data;
-		var path = room + ".js";
+		var path =  room + ".py";
 		fs.writeFile(path, fileContent, (err) => {
     if (err) throw err;
 
     console.log("The file was succesfully saved!");
-		
+
 		socket.to(room).emit('editUpdate', data);
 		});
 	})
+
+	socket.on('run', function(file){
+			// var createOptions = {
+			//     Tty: false,
+			//     'Binds': ['/Users/Brad/Documents/GitHub:/csci-4410-thesis']
+			// };
+			//
+			// var command = ['/usr/local/bin/python', '/csci-4410/' + file ];
+			//
+			// docker.run('python', command, process.stdout, createOptions, function(err, data, container) {
+		  // 	if (err) {
+			//     console.log('Error:', err);
+			//   }
+			//   console.log('Data: ', data);
+			//   console.log('Started container ', container.id);
+			// });
+			//
+			//
+			// var Writable = require('stream').Writable;
+			// var myStream = new Writable();
+			//
+			// var output = ''
+			//
+			// myStream._write = function write(doc, encoding, next) {
+			//    var StringDecoder = require('string_decoder').StringDecoder;
+			//    var decoder = new StringDecoder('utf8');
+			//    var result = decoder.write(doc);
+			//    output += result;
+			//    next()
+			// };
+			//
+			// function handler(error, data, container) {
+			//    if (error) {
+			//         console.log({ 'status': 'error', 'message': error });
+			//         reject(error)
+			//    }
+			//     resolve(output);
+			// };
+			//
+			// docker.run('test', ['/usr/local/bin/python', 'hello-world.py'], myStream, {}, handler);
+			//
+
+	})
 });
+
 
 
 

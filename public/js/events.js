@@ -71,6 +71,12 @@ function update(event){
 }
  }
 
+ function run(event){
+   var file = location.href.split('/')[4] + ".py";
+   console.log("running");
+   socket.emit('run', file);
+ }
+
 
 
 

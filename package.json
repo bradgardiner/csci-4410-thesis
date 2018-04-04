@@ -10,6 +10,8 @@
   "license": "0BSD",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "docker": "^1.0.0",
+    "dockerode": "^2.5.4",
     "express": "^4.13.4",
     "socket.io": "^2.0.4",
     "uuid": "^3.2.1"
