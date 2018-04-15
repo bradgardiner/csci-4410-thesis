@@ -1,6 +1,0 @@
-function foo(items) {
-                  var x = "All this is syntax highlighted";
-                  return x;
-              }sshenlo I amm testing if my file actually saves 
-              leedlesssssI am saving after every key stroke and this is not lagging the system at all 
-              l
